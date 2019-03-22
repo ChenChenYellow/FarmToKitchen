@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <table class="menuTable">
+        <tr>
+            <td><a href="home.html"><span>Home</span></a></td>
+            <td><a href="order.html"><span>Order</span></a></td>
+            <td><a href="cart.html"><span>Cart</span></a></td>
+            <td><a href="register.html"><span>Register</span></a></td>
+        </tr>
+    </table>
+    <div class="mainContent">
+        <div class="personInfo">
+            <p id="pInfo"></p>
+        </div>
+
+        <p style="text-align: right"><button id="clearCartButton" onclick="clearCart();">Clear Cart</button></p>
+
+        <button id="showOrderButton" onclick="alert(sessionStorage.getItem('FarmToKitchenOrder'))">show</button>
+        <p id="nothingInCart" style="text-align: center" >Nothing in Cart</p>
+        <table class='orderTable' id='orderTable' align='center'>
+            <tr class='headder'>
+                <th></th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>BIO</th>
+                <th>Image</th>
+                <th>Qty</th>
+                <th>Total</th>
+            </tr>
+        </table>
+        
+        <p id="payButton" style="text-align: right"><button onclick="pay()">Pay</button></p>
+    </div>
+    <table class="bottomMenu">
+        <tr>
+            <td><a href="contact.html"><span>Contact us</span></a></td>
+            <td><a href="returnPolicies.html"><span>Return policies</span></a></td>
+            <td><a href="comment.html"><span>Leave a comment</span></a></td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+            let ord = sessionStorage.getItem("FarmToKitchenOrder");
+            if (ord == null) {
+                $("#orderTable").hide();
+                $("#payButton").hide();
+                $("#clearCartButton").hide();
+            } else {
+                $("#nothingInCart").hide();
+                let count = 0;
+                for (let s of ord.split('|')) {
+                    for (let sstr of str.split('|')) {
+                        if (s.split('/')[0] == sstr.split('/')[0]) {
+                            let temp = sstr.split('/');
+                            let row = document.createElement("tr");
+                            $(row).addClass("datas");
+                            let td = document.createElement("td");
+                            $(td).addClass('deleteOrder');
+                            $(td).html(`<button onclick=deleteOrder(${count});><strong>X</strong></button>`);
+                            $(row).append(td);
+                            td = document.createElement("td");
+                            $(td).addClass('name');
+                            $(td).html(`${temp[0]}`);
+                            $(row).append(td);
+                            td = document.createElement("td");
+                            $(td).addClass('price');
+                            $(td).html(`$${temp[1]}/${temp[2]}`);
+                            $(row).append(td);
+                            td = document.createElement("td");
+                            $(td).addClass('bio');
+                            if (temp[3] == 'yes') {
+                                $(td).html("Yes");
+                            } else {
+                                $(td).html("No");
+                            }
+                            $(row).append(td);
+                            td = document.createElement("td");
+                            $(td).addClass("image");
+                            $(td).html(`<img src='${temp[4]}'>`);
+                            $(row).append(td);
+                            td = document.createElement("td");
+                            $(td).addClass("qty");
+                            $(td).html(`${s.split('/')[1]}`);
+                            $(row).append(td);
+                            td = document.createElement("td");
+                            $(td).addClass("total");
+                            $(td).html(`${Math.round(Number.parseFloat(temp[1]) * Number.parseFloat(s.split('/')[1]) *100)/100}`);
+                            $(row).append(td);
+                            $("#orderTable").append(row);
+                            count++;
+                        }
+                    }
+                }
+            }
+        </script>
+    
+    <script type="text/javascript">
+        $("#showOrderButton").hide();
+    </script>
+    <script type="text/javascript" src="end-Script.js">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+.menuTable {
+    width: 100%;
+    background-color: rgba(239, 132, 55, 0.30);
+
+}
+
+.menuTable tr {
+    height: 75px;
+}
+
+.menuTable tr td {
+    height: 40px;
+    width: 30%;
+    background-color: rgba(239, 132, 55, 0.68);
+
+}
+
+.menuTable tr td a {
+    color: rgba(25, 100, 150, 0.9);
+    font-size: large;
+    font-family: Arial;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: table;
+    position: relative;
+}
+
+.menuTable tr td a span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+
+}
+.menuTable tr td:hover{
+    background-color: rgb(250, 150, 50, 0.5);
+}
+
+.foodList {
+    width: 90%;
+    background-color: orange;
+}
+
+.foodList tr {
+    background-color: lightgreen;
+}
+
+.foodList tr td {
+    background-color: lightpink;
+    vertical-align: top;
+    width: 20%;
+   
+}
+
+.foodList tr td .foodName {
+    font-style: italic;
+    font-size: 26px;
+    margin: auto;
+}
+
+.foodList tr td .bio {
+    color: green;
+    font-size: 16px;
+    margin: auto;
+}
+.foodList tr td .price{
+    margin: auto;
+}
+
+.foodList tr td .image {
+    width: 100%;
+}
+
+.foodList tr td .addToCart {
+    border-style: none;
+    background-color: palegreen;
+}
+
+.bottomMenu {
+    background-color: rgb(300, 150, 50, 0.9);
+    width:100%;
+    height: 60px;
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    text-decoration: none;
+    color: skyblue;
+}
+.bottomMenu tr{
+    height: 100%;
+}
+.bottomMenu tr td{
+    width:33%;
+}
+.bottomMenu tr td:hover{
+    background-color:rgb(350, 120, 30, 1);
+}
+.bottomMenu tr td a{
+    text-decoration: none;
+    color:blanchedalmond;
+    height: 100%;
+    width: 100%;
+    display: table;
+    position: relative;
+}
+
+
+.bottomMenu tr td a span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+
+}
+.mainContent{
+    margin-bottom: 60px;
+    
+}
+
+.mainContent .fillInfo p {
+    text-align: left;
+    
+}
+
+.mainContent .fillInfo input{
+    background-color: rgb(100, 200, 60, 0.01);
+    border-style:groove
+}
+.mainContent .fillInfo button{
+    background-color: rgb(100, 200, 60, 0.5);
+    border-style: groove;
+    height: 40px;
+    width: 200px;
+    font-size: 18px;
+}
+body{
+    background-color: rgb(300, 200, 60, 0.5);
+}
+
+.mainContent .loginInfo{
+    text-align: center;
+}
+.mainContent .loginInfo button{
+    height: 40px;
+    width: 200px;
+    font-size: 18px;
+    border-style: groove;
+    background-color: rgb(100, 200, 60, 0.5);
+}
+.mainContent .loginInfo input{
+    background-color: rgb(100, 200, 60, 0.01);
+    border-style:groove
+}
+.mainContent p button{
+    background-color: rgb(200, 100, 50, 0.1);
+    border-style: groove;
+    height: 30px;
+    
+}
+.orderTable{
+    width: 90%;
+    text-align: center;
+    background-color: rgb(300, 100, 20, 0.1);
+}
+
+.orderTable .headder{
+    font-size: 18px;
+    background-color: rgb(300, 100, 20, 0.2);
+}
+
+.orderTable .datas{
+    background-color: rgb(300, 100, 20, 0.1);
+}
+.orderTable .datas td{
+    text-align: center;
+}
+
+.orderTable .datas img{
+    height: 0 auto;
+    width: 100%;
+}
+.orderTable .datas .deleteOrder{
+    width: 10%;
+}
+.orderTable .datas .deleteOrder button{
+    color: red;
+    background-color: black;
+    
+    
+}
+.orderTable .datas .name{
+    width: 15%;
+}
+.orderTable .datas .price{
+    width: 15%;
+}
+.orderTable .datas .bio{
+    width: 10%;
+}
+.orderTable .datas .image{
+    width: 15%;
+}
+.orderTable .datas .qty{
+    width: 15%;
+}
+.orderTable .datas .total{
+    width: 20%;
+}
+
+.commentList{
+    list-style-type: none;
+    list-style-position: inside;
+    border-width: medium;
+    border-color: black;
+    border-style: solid;
+}
+.commentList li{
+    border-bottom-width: thin;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-left: none;
+}
+.commentList :last-child{
+    border-bottom:  none;
+}
+.commentList li .timePosted{
+    border-bottom-width: thin;
+    border-bottom-color: black;
+    border-bottom-style: dashed;
+    font-size: 12px;
+}
+.commentList li .user{
+    font-size: 20px;
+}
+
+.receiptTable {
+    width: 100%;
+}
+
+.receiptTable .headder td{
+    border-bottom-width: thin;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    font-size: 18px;
+}
+
+.mainContent .total{
+    text-align: left;
+}
+
+.mainContent p{
+    text-align: left;
+}
+
+.mainContent p span{
+    float: right;
+}
+.mainContent .total span{
+    float: right;
+}
+.receiptTable .datas .total{
+    text-align: right;
+}
+.receiptTable .headder .total{
+    text-align: right;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}

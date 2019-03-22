@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#name").on({
+                keydown: function(e) {
+                    if (Number.isInteger(Number.parseInt(e.key)) == true) {
+                        e.preventDefault();
+                    }
+                }
+            })
+        })
+
+    </script>
+    <table class="menuTable">
+        <tr>
+            <td><a href="home.html"><span>Home</span></a></td>
+            <td><a href="order.html"><span>Order</span></a></td>
+            <td><a href="cart.html"><span>Cart</span></a></td>
+            <td><a href="register.html"><span>Register</span></a></td>
+        </tr>
+    </table>
+    <div class="mainContent">
+        <div class="fillInfo">
+            <p>Username <input id="username" type="text" /> </p>
+            <p>Password <input id="password" type="password" /> </p>
+            <p>Name <input id="name" type="text" /></p>
+            <p>Address <input id="address" type="text" /></p>
+            <p>Credit Card</p>
+            <p><input id="master" type="radio" name="credit card" />MASTERCARD</p>
+            <p><input id="visa" type="radio" name="credit card" checked="true" />VISA</p>
+            <p>Card Number
+                <input id="cardNumber" type="number" /></p>
+            <p>Name on the Card
+                <input id="nameOnTheCard" type="text" /></p>
+            <p>Expiration date
+                <select id="expMonth">
+                    <script type="text/javascript">
+                        for (let i = 1; i <= 12; i++) {
+                            document.writeln(`<option value="${i}">${i}</option>`);
+                        }
+
+                    </script>
+                </select>/
+                <select id="expYear">
+                    <script type="text/javascript">
+                        let temp = new Date(Date.now());
+                        for (let i = temp.getFullYear(); i < (temp.getFullYear() + 30); i++) {
+                            document.writeln(`<option value="${i}">${i}</option>`);
+                        }
+
+                    </script>
+                </select></p>
+            <p>Security code
+                <input id="securityCode" type="number" /></p>
+
+            <p><button onclick="register();">Register</button></p>
+            <p><button onclick="showCurrent();">Show Current User</button></p>
+        </div>
+    </div>
+    <table class="bottomMenu">
+        <tr>
+            <td><a href="contact.html"><span>Contact us</span></a></td>
+            <td><a href="returnPolicies.html"><span>Return policies</span></a></td>
+            <td><a href="comment.html"><span>Leave a comment</span></a></td>
+        </tr>
+    </table>
+</body>
+
+</html>

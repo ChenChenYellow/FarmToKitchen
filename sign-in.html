@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <table class="menuTable">
+        <tr>
+            <td><a href="home.html"><span>Home</span></a></td>
+            <td><a href="order.html"><span>Order</span></a></td>
+            <td><a href="cart.html"><span>Cart</span></a></td>
+            <td><a href="register.html"><span>Register</span></a></td>
+        </tr>
+    </table>
+
+    <div class="mainContent">
+        <div class="personInfo">
+            <p id="pInfo"></p>
+        </div>
+        <div class="loginInfo">
+
+            <p>Username</p>
+            <input id="usernameLogin" type="text" />
+            <p>Password</p>
+            <input id="passwordLogin" type="password" />
+            <p style="text-align: center"><button onclick="login()">Login</button></p>
+            <p style="text-align: center"><button onclick="alert(sessionStorage.getItem(`currentUser`))">show current</button> </p>
+        </div>
+    </div>
+    <table class="bottomMenu">
+        <tr>
+            <td><a href="contact.html"><span>Contact us</span></a></td>
+            <td><a href="returnPolicies.html"><span>Return policies</span></a></td>
+            <td><a href="comment.html"><span>Leave a comment</span></a></td>
+        </tr>
+    </table>
+
+    <script type="text/javascript" src="end-Script.js">
+    </script>
+</body>
+</html>

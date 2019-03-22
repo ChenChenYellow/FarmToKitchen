@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src='script.js'>
+    </script>
+    <table class="menuTable">
+        <tr>
+            <td><a href="home.html"><span>Home</span></a></td>
+            <td><a href="order.html"><span>Order</span></a></td>
+            <td><a href="cart.html"><span>Cart</span></a></td>
+            <td><a href="register.html"><span>Register</span></a></td>
+        </tr>
+    </table>
+
+    <div class="mainContent">
+        <div class="personInfo">
+            <p id="pInfo"></p>
+        </div>
+        <script type="text/javascript">
+            document.writeln("<table class='foodList' align='center'>");
+            let count = 0;
+            for (let s of str.split('|')) {
+
+                if (count % 5 == 0) {
+                    document.writeln("<tr>");
+                }
+                let x = s.split('/');
+                document.writeln("<td>");
+                document.writeln(`<p class='foodName'>${x[0]}</p>`);
+                if (x[3] == "yes") {
+                    document.writeln(`<p class='bio'>BIO</p>`);
+                } else {
+                    document.writeln(`<p class='bio'>NON-BIO</p>`);
+                }
+                document.writeln(`<img class='image' src="${x[4]}"/>`);
+                document.writeln(`<p class='price'>$${x[1] + '/' + x[2]}</p>`)
+                document.writeln(`<button class='addToCart' onclick='addToCart("${x[0]}", "${x[2]}")'>Add To Cart</button>`)
+
+                document.writeln("</td>");
+                if (count % 5 == 4) {
+                    document.writeln("</tr>");
+                }
+                count++;
+            }
+            if (count % 5 != 0) {
+                document.writeln("</tr>");
+            }
+            document.writeln("</table>");
+        </script>
+    </div>
+
+
+
+
+    <table class="bottomMenu">
+        <tr>
+            <td><a href="contact.html"><span>Contact us</span></a></td>
+            <td><a href="returnPolicies.html"><span>Return policies</span></a></td>
+            <td><a href="comment.html"><span>Leave a comment</span></a></td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="end-Script.js">
+    </script>
+</body>
+</html>

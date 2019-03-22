@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <script type="text/javascript" src="jq.js">
+    </script>
+    <script type="text/javascript" src="script.js">
+    </script>
+    <div class="mainContent">
+        <h1>Order</h1>
+        <table id="receiptTable" class='receiptTable' align='center'>
+            <tr class='headder'>
+                <td>Name</td>
+                <td>Price</td>
+                <td>BIO</td>
+                <td>Qty</td>
+                <td class='total'>Total</td>
+            </tr>
+        </table>
+        <p id="subtotal" class='total'>Subtotal : <span></span></p>
+        <p id="tax" class='total'>Tax : <span></span></p>
+        <p id="total" class='total'>Total : <span></span></p>
+        <h1>Ship To</h1>
+        <script type="text/javascript">
+            let ord = sessionStorage.getItem("FarmToKitchenOrder");
+            let sub = 0;
+            for (let s of ord.split('|')) {
+                for (let sstr of str.split('|')) {
+                    if (s.split('/')[0] == sstr.split('/')[0]) {
+                        let temp = sstr.split('/');
+                        let row = document.createElement("tr");
+                        $(row).addClass("datas");
+                        //row.addClass("datas");
+                        let td = document.createElement("td");
+                        $(td).addClass("name");
+
+                        $(td).text(`${temp[0]}`);
+                        $(row).append(td);
+
+                        td = document.createElement("td");
+                        $(td).addClass("price");
+                        $(td).text(`${temp[1]}/${temp[2]}`)
+                        $(row).append(td);
+
+
+                        td = document.createElement("td");
+                        $(td).addClass("bio");
+                        if (temp[3] == 'yes') {
+                            $(td).text(`Yes`);
+                        } else {
+                            $(td).text(`No`);
+                        }
+                        $(row).append(td);
+
+                        td = document.createElement("td");
+                        $(td).addClass("qty");
+                        $(td).text(`${s.split('/')[1]}`);
+                        $(row).append(td);
+
+                        td = document.createElement("td");
+                        $(td).addClass("total");
+                        $(td).text(`${Math.round(Number.parseFloat(temp[1]) * Number.parseFloat(s.split('/')[1]) *100)/100}`);
+                        $(row).append(td);
+
+                        sub += Math.round(Number.parseFloat(temp[1]) * Number.parseFloat(s.split('/')[1]) * 100) / 100;
+                        $("#receiptTable").append(row);
+                        break;
+                    }
+                }
+            }
+
+            $("#subtotal span").text(`${sub}`);
+            $("#tax span").text(`${Math.round( sub * 0.15 *100)/100}`);
+            $("#total span").text(`${Math.round( sub * 1.15 *100)/100}`);
+
+            let cu = sessionStorage.getItem("currentUser");
+
+        </script>
+        <p id="user"></p>
+        <p id="name"></p>
+        <p id="address"></p>
+        <p id="cardType"></p>
+        <p id="cardNumber"></p>
+        <script type="text/javascript">
+            $("#user").html(`Username : <span>${cu.split("/")[0]}</span>`);
+            $("#name").html(`Name : <span>${cu.split("/")[2]}</span>`);
+            $("#address").html(`Address : <span>${cu.split("/")[3]}</span>`);
+            $("#cardType").html(`Card Type : <span>${cu.split("/")[4]}</span>`);
+            $("#cardNumber").html(`Card Number : <span>${cu.split("/")[5]}</span>`);
+
+        </script>
+        <p><button onclick="location.href = 'home.html';">Back to Menu</button></p>
+        <p>
+            <button onclick="window.print()">Print Receipt</button></p>
+    </div>
+</body>
